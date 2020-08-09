@@ -16,6 +16,10 @@ export function compileToFunctions(template) {
     
     // 3、通过AST 重新生成render函数代码
     let code = generate(ast)
+    console.log(code)
     
-    
+    // 4、将字符串变成函数,限制取值范围，通过with来进行取值，稍后调用render函数就可以通过改变this，让这个函数内部取到结果,
+    // 后续调用render函数时，可以通过render.call(vm)调用，render内部就可以拿到vm内的属性和方法
+    let render = new Function(`with(this){return ${code}}`)
+    return render
 }

@@ -5,7 +5,7 @@ const startTagOpen = new RegExp(`^<${qnameCapture}`) //标签开头的正则 捕
 const endTag = new RegExp(`^<\\/${qnameCapture}[^>]*>`); // 匹配标签结尾的</div>
 const attribute = /^\s*([^\s"'<>\/=]+)(?:\s*(=)\s*(?:"([^"]*)"+|'([^']*)'+|([^\s"'=<>`]+)))?/  //匹配属性
 const startTagClose = /^\s*(\/?)>/  // 匹配标签结束的   <div></div>  <br/>
-const defaultTagRE = /\{\{((?:.|\r?\n)+?)\}\}/g   // 匹配{{ }}
+export const defaultTagRE = /\{\{((?:.|\r?\n)+?)\}\}/g   // 匹配{{ }}
 
 
 export function parseHTML(html) {

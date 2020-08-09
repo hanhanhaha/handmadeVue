@@ -28,6 +28,6 @@ export function initMixin(Vue) {
             // 把render 放到options上面
             options.render = render
         }
-        // console.log(options.render)  最终渲染时都是使用render方法
-    }
+
+    } 
 }
