@@ -1,5 +1,6 @@
 import { initState } from './state'
 import { compileToFunctions } from './compiler/index'
+import { mountComponent } from './lifecycle'
 export function initMixin(Vue) {
     Vue.prototype._init = function (options) {
         const vm = this
@@ -17,6 +18,7 @@ export function initMixin(Vue) {
         const vm = this
         const options = vm.$options
         el = document.querySelector(el)
+        vm.$el = el
         if (!options.render) {
             // 没有render函数的话，将template转换成render
             let template = options.template
@@ -28,6 +30,7 @@ export function initMixin(Vue) {
             // 把render 放到options上面
             options.render = render
         }
-
+        // 生成render函数后，开始挂载这个组件
+        mountComponent(vm,el)
     } 
 }

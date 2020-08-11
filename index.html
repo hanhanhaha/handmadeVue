@@ -8,9 +8,11 @@
 </head>
 
 <body>
-    
-    <div id="app" style="color:red;font-size:18px;">
-         ok<div id="my">hello {{ name }}{{msg}} qqqq<span>world</span></div> sd
+    <div id="app" style="color:red;font-size:18px;">ok,<span id="my">hello,{{ a }}</span>
+        <ul>
+            <li>{{ person.name }}</li>
+            <li>{{ person.age }}</li>
+        </ul>
     </div>
     <script src="dist/umd/vue.js"></script>
     <script>
@@ -18,13 +20,20 @@
             el: '#app',
             data() {
                 return {
-                    a: [1, 2, 3]
+                    a: 'world',
+                    b: 'bbb',
+                    c: 'ccc',
+                    person: {
+                        name: 'jack',
+                        age: 10
+                    }
                 }
             },
             // render(h) {
             //     return h('div', { id: 'a' }, 'hello')
             // }
         })
+
         // console.log(vm.a)
         // 我们开发功能时很少对数组索引进行操作，为了性能考虑不对数组进行拦截，
         // 于是想到 我们可以通过拦截可以改变数组的方法 进行操作
